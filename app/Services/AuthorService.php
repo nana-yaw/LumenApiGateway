@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Http\Request;
 use App\Traits\ConsumesExternalService;
 
 class AuthorService
@@ -45,5 +46,23 @@ class AuthorService
     public function obtainAuthor($author)
     {
         return $this->performRequest('GET', "/authors/{$author}");
+    }
+
+    /**
+     * update an instance of author by id from the author service
+     * @return string
+     */
+    public function editAuthor($data, $author)
+    {
+        return $this->performRequest('PUT', "/authors/{$author}", $data);
+    }
+
+    /**
+     * Use author service to delete an author instance
+     * @return string
+     */
+    public function deleteAuthor($author)
+    {
+        return $this->performRequest('DELETE', "/authors/{$author}");
     }
 }
