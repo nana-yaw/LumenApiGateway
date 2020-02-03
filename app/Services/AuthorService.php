@@ -30,11 +30,20 @@ class AuthorService
     }
 
     /**
-     * create an author from the author service
+     * create one author from the author service
      * @return string
      */
-    public function createAuthor()
+    public function createAuthor($data)
     {
-        return $this->performRequest('GET','/authors');
+        return $this->performRequest('POST', '/authors', $data);
+    }
+
+    /**
+     * Get details from an author by id from the author service
+     * @return string
+     */
+    public function obtainAuthor($author)
+    {
+        return $this->performRequest('GET', "/authors/{$author}");
     }
 }
