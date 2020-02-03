@@ -34,6 +34,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
+        return $this->successResponse($this->authorService->obtainAuthors());
     }
 
     /**
@@ -42,6 +43,7 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
+        return $this->successResponse($this->authorService->createAuthor($request->all(), Response::HTTP_CREATED));
     }
 
     /**
