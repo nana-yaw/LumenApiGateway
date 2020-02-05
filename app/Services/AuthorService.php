@@ -15,9 +15,16 @@ class AuthorService
      */
     public $baseUri;
 
+    /**
+     * The secret to consume the authors service
+     * @var string
+     */
+    public $secret;
+
     public function __construct()
     {
         $this->baseUri = env('AUTHORS_SERVICE_BASE_URL');
+        $this->secret = env('AUTHORS_SERVICE_SECRET');
 
     }
 
